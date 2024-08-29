@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Button from './components/Button';
+
+const User = (props) => {
+  const { name } = props;
+  return (
+    <div>
+      <h1>My Name is {name}</h1>
+    </div>
+  );
+};
 
 function App() {
+  const [name] = useState('Frandi Andika');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <h1 className="title">React Component</h1>
+        <User name={name} />
+        <Button initialCount={0} />
+      </div>
     </div>
   );
 }
